@@ -82,27 +82,50 @@ export default function NavBar() {
                 </svg>
               </Button>
             </PopoverTrigger>
-            <PopoverContent align="start" className="w-36 p-1 md:hidden">
+            <PopoverContent align="start" className="w-40 p-1 md:hidden">
               <NavigationMenu className="max-w-none *:w-full">
                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
                   {navigationLinks.map((link, index) => {
                     // const Icon = link.icon
-                    return (
-                      <NavigationMenuItem key={index} className="w-full">
-                        <NavigationMenuLink
-                          href={link.href}
-                          className="flex-row items-center gap-2 py-1.5"
-                          active={link.active}
-                        >
-                          {/* <Icon
-                            size={16}
-                            className="text-muted-foreground/80"
-                            aria-hidden="true"
-                          /> */}
-                          <span>{link.label}</span>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    )
+                    if (link.submenu && Array.isArray(link.items)) {
+                      return (
+                        <NavigationMenuItem key={index} className="w-full">
+                          <div className="flex flex-col">
+                            <NavigationMenuLink
+                              href={link.href}
+                              className="flex-row items-center gap-2 py-1.5 font-semibold"
+                              active={link.active}
+                            >
+                              <span>{link.label}</span>
+                            </NavigationMenuLink>
+                            <ul className="pl-4">
+                              {link.items.map((item, itemIndex) => (
+                                <li key={itemIndex}>
+                                  <NavigationMenuLink
+                                    href={item.href}
+                                    className="flex-row items-center gap-2 py-1.5 text-sm"
+                                  >
+                                    <span>{item.label}</span>
+                                  </NavigationMenuLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </NavigationMenuItem>
+                      );
+                    } else {
+                      return (
+                        <NavigationMenuItem key={index} className="w-full">
+                          <NavigationMenuLink
+                            href={link.href}
+                            className="flex-row items-center gap-2 py-1.5"
+                            active={link.active}
+                          >
+                            <span>{link.label}</span>
+                          </NavigationMenuLink>
+                        </NavigationMenuItem>
+                      );
+                    }
                   })}
                 </NavigationMenuList>
               </NavigationMenu>
