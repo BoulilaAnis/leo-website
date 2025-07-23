@@ -4,7 +4,7 @@ import { MainCard } from "@/components/Card";
 
 const Hero = () => {
   return (
-     <div className='relative aspect-video w-[100vw] h-[100vh] rounded-sm border border-zinc-100  '>
+    <div className='relative w-screen sm:h-full min-h-screen rounded-sm border border-primary'>
       <Spotlight
         className='bg-zinc-700 blur-2xl'
         size={64}
@@ -13,9 +13,9 @@ const Hero = () => {
           duration: 0.1,
         }}
       />
-              <div className="flex items-center justify-center">
-                  <MainCard />
-              </div>
+      <div className="flex items-center justify-center h-full">
+        <MainCard />
+      </div>
     </div>
   )
 }

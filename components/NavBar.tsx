@@ -1,6 +1,7 @@
 import { useId } from "react"
 import { HouseIcon, InboxIcon, SearchIcon, ZapIcon } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 // Removed unused Logo import
 import { Button } from "@/components/ui/button"
@@ -21,8 +22,8 @@ import {
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
-  { href: "#", label: "Home", icon: HouseIcon, active: true },
-  { href: "#",
+  { href: "/", label: "Home", icon: HouseIcon, active: true },
+  { href: "/about",
     label: "About us",
     submenu: true,
     type:"description",
@@ -109,9 +110,9 @@ export default function NavBar() {
           </Popover>
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#" className="text-primary hover:text-primary/90">
+            <Link href="/" className="text-primary hover:text-primary/90">
             <Image src="/omega.jpg" alt="logo" width={100} height={24} />
-            </a>
+            </Link>
           </div>
         </div>
         {/* Middle area */}
