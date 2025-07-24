@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva } from "class-variance-authority"
 import { ChevronDownIcon } from "lucide-react"
 import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui"
+import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 
@@ -123,8 +124,26 @@ function NavigationMenuViewport({
 
 function NavigationMenuLink({
   className,
+  href,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {
+}: Omit<React.ComponentProps<typeof NavigationMenuPrimitive.Link>, 'href'> & {
+  href?: string
+}) {
+  if (href) {
+    return (
+      <Link
+        href={href}
+        data-slot="navigation-menu-link"
+        className={cn(
+          "data-[active]:focus:bg-accent data-[active]:hover:bg-accent data-[active]:bg-accent data-[active]:text-accent-foreground hover:bg-accent focus:bg-accent focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+          className
+        )}
+      >
+        {props.children}
+      </Link>
+    );
+  }
+
   return (
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
