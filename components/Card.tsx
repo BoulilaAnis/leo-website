@@ -27,24 +27,21 @@ export function MainCard() {
       <div className="flex flex-col justify-center rounded-lg p-4">
         <div className="flex flex-wrap items-center justify-center ">
           {cards.map((card, index) => (
-            <MinimalCard className="m-2 w-[460px] " key={index}>
-              <MinimalCardImage
-                className="h-[320px]"
-                src={card.src}
-                alt={card.title}
-              />
-              <MinimalCardTitle className="text-center">
-
-
-                <Link href={`/${card.title}`} passHref>
-                  <GetStartedButton>{card.title}</GetStartedButton>
-                </Link>
-
+            <Link href={`/${card.title}`} key={index} passHref className="m-2 w-[460px]">
+              <MinimalCard className="w-full cursor-pointer hover:shadow-lg transition-shadow">
+                <MinimalCardImage
+                  className="h-[320px]"
+                  src={card.src}
+                  alt={card.title}
+                />
+                <MinimalCardTitle className="text-center">
+                  {card.title}
                 </MinimalCardTitle>
-              <MinimalCardDescription className="text-center">
-                {card.description}
-              </MinimalCardDescription>
-            </MinimalCard>
+                <MinimalCardDescription className="text-center">
+                  {card.description}
+                </MinimalCardDescription>
+              </MinimalCard>
+            </Link>
           ))}
         </div>
       </div>
