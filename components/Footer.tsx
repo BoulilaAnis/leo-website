@@ -8,6 +8,7 @@ import { Button } from "./ui/button"
 import { Separator } from "./ui/separator"
 import Logo from "./logo"
 import { socialLinks } from "@/data";
+import { donate } from "@/data";
 
 
 const containerVariants = {
@@ -65,7 +66,7 @@ export default function Footer() {
                             className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8"
                             asChild
                         >
-                            <Link href="/donate" className="flex items-center gap-2">
+                            <Link href={donate} className="flex items-center gap-2">
                                 <motion.div
                                     animate={{
                                         scale: [1, 1.2, 1],

@@ -19,7 +19,7 @@ export function MainCard() {
                     {cards.map((card, index) => (
 
                         <Link href={`/${card.title}`} key={index} passHref className="m-2 w-[460px]">
-                            <Cursor2 message={card.title.toUpperCase()}>
+                            <Cursor2 message={`Click on ${card.title.toUpperCase()}`}>
                                 <MinimalCard className="w-full  hover:shadow-lg transition-shadow">
                                     <MinimalCardImage
                                         className="h-[320px]"
