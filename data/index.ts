@@ -2,7 +2,7 @@
 import { HouseIcon, InboxIcon, SearchIcon, ZapIcon } from "lucide-react" // navbar icons
 import { Github, Heart, Instagram, Linkedin, Twitter, Facebook } from "lucide-react" // social media icons
 
-export const donate = "#"
+export const donate: string = "#"
 export const socialLinks = [
     {
         icon: Facebook,
@@ -45,7 +45,7 @@ export const cards = [
         },
     ]
 export const navigationLinks = [
-  { href: "/d", label: "Home", icon: HouseIcon, active: true },
+  { href: "/", label: "Home", icon: HouseIcon, active: true },
   { href: "/about",
     label: "About us",
     submenu: true,
@@ -59,5 +59,5 @@ export const navigationLinks = [
           },
       ]
 },
-  { href: {donate}, label: "Donate" },
+  { href: donate, label: "Donate" },
 ]
