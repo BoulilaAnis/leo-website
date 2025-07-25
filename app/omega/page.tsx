@@ -1,8 +1,9 @@
 import React from 'react'
+import Test from '@/components/test'
 
 const page = () => {
   return (
-    <div>page</div>
+        <Test text='LEO OMEGA'/>
   )
 }
 

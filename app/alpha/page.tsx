@@ -4,7 +4,7 @@ import Test from '@/components/test'
 const page = () => {
   return (
     <div>
-        <Test text='ALPHA'/>
+        <Test text='LEO ALPHA'/>
     </div>
   )
 }
