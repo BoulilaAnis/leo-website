@@ -1,8 +1,11 @@
 import React from 'react'
+import Test from '@/components/test'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+        <Test text='ALPHA'/>
+    </div>
   )
 }
 

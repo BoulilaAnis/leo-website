@@ -18,8 +18,8 @@ export function MainCard() {
 
                     {cards.map((card, index) => (
 
-                            <Link href={`/${card.title}`} key={index} passHref className="m-2 w-[460px]">
-                        <Cursor2 message={card.title}>
+                        <Link href={`/${card.title}`} key={index} passHref className="m-2 w-[460px]">
+                            <Cursor2 message={card.title.toUpperCase()}>
                                 <MinimalCard className="w-full  hover:shadow-lg transition-shadow">
                                     <MinimalCardImage
                                         className="h-[320px]"
@@ -33,8 +33,8 @@ export function MainCard() {
                                         {card.description}
                                     </MinimalCardDescription>
                                 </MinimalCard>
-                        </Cursor2>
-                            </Link>
+                            </Cursor2>
+                        </Link>
                     ))}
                 </div>
             </div>
